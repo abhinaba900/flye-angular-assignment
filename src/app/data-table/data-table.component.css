@@ -1,0 +1,58 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px ;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #e0e2ec;
+  width: 300px;
+}
+
+.workout-select {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #e0e2ec;
+  width: 200px;
+}
+
+.custom-table .p-datatable {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.custom-table .p-datatable-header {
+  background-color: #f4f4f4;
+}
+
+.custom-table .p-datatable-thead th {
+  padding: 10px;
+  border-bottom: 2px solid #1f1919;
+  text-align: left;
+}
+
+.custom-table .p-datatable-tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.custom-table .p-paginator {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f4f4f4;
+}
+
+.custom-table .p-paginator {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f4f4f4;
+}

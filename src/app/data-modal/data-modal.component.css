@@ -1,0 +1,11 @@
+.search-input,
+.workout-select {
+  padding: 1rem ;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #e0e2ec;
+  width: 300px;
+
+}

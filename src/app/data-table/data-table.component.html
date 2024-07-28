@@ -1,0 +1,35 @@
+<div class="container mt-5 mb-5" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; padding: 20px; border-radius: 10px;">
+  <div class="filters">
+    <input type="text" pInputText (input)="onGlobalFilter($event)" placeholder="Search" class="search-input" />
+    <select (change)="onWorkoutFilterChange($event)" class="workout-select">
+      <option value="">Filter by Workout Type</option>
+      <option value="Running">Running</option>
+      <option value="Cycling">Cycling</option>
+      <option value="Swimming">Swimming</option>
+      <option value="Yoga">Yoga</option>
+    </select>
+    <p-button (onClick)="showDialog()" label="Add Workout"></p-button>
+  </div>
+
+  <p-table [value]="filteredRows" [paginator]="true" [rows]="rowsPerPage" [rowsPerPageOptions]="rowsPerPageOptions" class="custom-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngFor="let col of columns" class="border text-center">{{ col.header }}</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-row>
+      <tr>
+        <td class="border text-center">{{ row.name }}</td>
+        <td class="border text-center">{{ row.workouts }}</td>
+        <td class="border text-center">{{ row.numberOfWorkouts }}</td>
+        <td class="border text-center">{{ row.totalWorkoutMinutes }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <app-data-modal
+    [visible]="dialogVisible"
+    (workoutAdded)="addWorkout($event)"
+  ></app-data-modal>
+</div>
