@@ -15,68 +15,9 @@ This project is an Angular application that includes a data table and a modal di
 - **Local Storage**: Persists workout data in the browser's local storage.
 - **Filtering**: Provides global and specific workout filters.
 
-### Installation
-
 ---
-
-1.  **Clone the repository**:
-
-    bash
-
-    Copy code
-
-    `git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name`
-
-2.  **Install dependencies**:
-
-    bash
-
-    Copy code
-
-    `npm install`
-
-### Running the Application
-
----
-
-1.  **Serve the application**:
-
-    bash
-
-    Copy code
-
-    `ng serve`
-
-2.  **Open your browser** and navigate to `http://localhost:4200`.
-
-### Running Tests
-
----
-
-1.  **Run all tests**:
-
-    bash
-
-    Copy code
-
-    `ng test`
-
-2.  **Run tests with code coverage**:
-
-    bash
-
-    Copy code
-
-    `ng test --code-coverage`
-
-3.  **Check the coverage report**:
-
-    Open the `coverage` directory and view the `index.html` file in a browser to see the detailed coverage report.
 
 ### Project Structure
-
----
 
 ### Components
 
