@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewEntry } from './new-entry.model';
 
 @Component({
   selector: 'app-data-table',
@@ -21,12 +22,19 @@ export class DataTableComponent implements OnInit {
   rowsPerPageOptions: number[] = [5, 10, 15, 20];
   rowsPerPage: number = 5;
   dialogVisible: boolean = false;
+  newEntry: NewEntry = { name: '', workout: '', workoutMinutes: 0 };
+
+  users: any[] = [];
+  selectedUser: any;
 
   ngOnInit(): void {
     if (this.isLocalStorageAvailable()) {
       this.loadFromLocalStorage();
+    } else {
+      this.loadInitialData();
     }
     this.aggregateData();
+    this.processUserData(this.rawData);
   }
 
   isLocalStorageAvailable(): boolean {
@@ -34,21 +42,22 @@ export class DataTableComponent implements OnInit {
   }
 
   loadFromLocalStorage(): void {
-    if (this.isLocalStorageAvailable()) {
-      const data = localStorage.getItem('workoutData');
-      if (data) {
-        this.rawData = JSON.parse(data);
-      } else {
-        // Initial data if localStorage is empty
-        this.rawData = [
-          { name: 'John Doe', workout: 'Running', workoutMinutes: 30 },
-          { name: 'John Doe', workout: 'Cycling', workoutMinutes: 45 },
-          { name: 'Jane Smith', workout: 'Swimming', workoutMinutes: 50 },
-          { name: 'Jane Smith', workout: 'Running', workoutMinutes: 30 },
-        ];
-        this.saveToLocalStorage();
-      }
+    const data = localStorage.getItem('workoutData');
+    if (data) {
+      this.rawData = JSON.parse(data);
+    } else {
+      this.loadInitialData();
+      this.saveToLocalStorage();
     }
+  }
+
+  loadInitialData(): void {
+    this.rawData = [
+      { name: 'John Doe', workout: 'Running', workoutMinutes: 30 },
+      { name: 'John Doe', workout: 'Cycling', workoutMinutes: 45 },
+      { name: 'Jane Smith', workout: 'Swimming', workoutMinutes: 50 },
+      { name: 'Jane Smith', workout: 'Running', workoutMinutes: 30 },
+    ];
   }
 
   saveToLocalStorage(): void {
@@ -79,6 +88,24 @@ export class DataTableComponent implements OnInit {
 
     this.rows = aggregatedData;
     this.filteredRows = [...this.rows];
+  }
+
+  processUserData(data: any[]) {
+    const userMap = data.reduce((acc, cur) => {
+      if (!acc[cur.name]) {
+        acc[cur.name] = {
+          label: cur.name,
+          value: { running: 0, cycling: 0, swimming: 0 },
+        };
+      }
+      acc[cur.name].value[cur.workout.toLowerCase()] += cur.workoutMinutes;
+      return acc;
+    }, {});
+
+    this.users = Object.values(userMap);
+    if (this.users.length > 0) {
+      this.selectedUser = this.users[0];
+    }
   }
 
   onGlobalFilter(event: Event): void {
@@ -117,12 +144,17 @@ export class DataTableComponent implements OnInit {
     this.dialogVisible = true;
   }
 
-  addWorkout(newEntry: any): void {
+  hideDialog(): void {
+    this.dialogVisible = false;
+  }
+
+  addWorkout(newEntry: NewEntry): void {
     this.rawData.push(newEntry);
     if (this.isLocalStorageAvailable()) {
       this.saveToLocalStorage();
     }
     this.aggregateData();
-    this.dialogVisible = false;
+    this.processUserData(this.rawData);
+    this.hideDialog();
   }
 }

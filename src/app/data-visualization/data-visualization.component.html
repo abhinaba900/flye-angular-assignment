@@ -1,0 +1,30 @@
+<button (click)="showDialog()" class="btn btn-primary">
+  Data Visualization
+</button>
+
+<p-dialog
+  header="Visualize Your Data"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [closable]="true"
+  [draggable]="false"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [style]="{ width: '50vw' }"
+  class="custom-dialog"
+>
+  <div class="container">
+    <div class="listbox-container mr-3">
+      <p-listbox
+        [options]="users"
+        [(ngModel)]="selectedUser"
+        optionLabel="label"
+        (onChange)="onUserSelect($event)"
+      >
+      </p-listbox>
+    </div>
+    <div class="chart-container" *ngIf="chartData">
+      <h2>{{ selectedUser?.label }}'s workout progress</h2>
+      <p-chart type="bar" [data]="chartData"></p-chart>
+    </div>
+  </div>
+</p-dialog>

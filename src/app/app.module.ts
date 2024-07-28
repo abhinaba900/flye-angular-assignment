@@ -11,9 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppDataModalComponent } from './data-modal/data-modal.component';
 import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
+import { DataVisualizationComponent } from './data-visualization/data-visualization.component';
+import { ListboxModule } from 'primeng/listbox';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
-  declarations: [AppComponent, DataTableComponent],
+  declarations: [AppComponent, DataTableComponent, DataVisualizationComponent],
   imports: [
     BrowserModule,
     TableModule,
@@ -23,8 +26,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     DialogModule,
     FormsModule,
-
     AppDataModalComponent,
+    ListboxModule,
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

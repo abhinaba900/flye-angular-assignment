@@ -4,8 +4,25 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .filters {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+  }
+}
 .search-input {
-  padding: 10px ;
+  padding: 10px;
   border: none;
   border-bottom: 2px solid #ccc;
   border-radius: 5px;
@@ -14,6 +31,17 @@
   width: 300px;
 }
 
+@media (max-width: 600px) {
+  .search-input {
+    width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .search-input {
+    width: 80%;
+  }
+}
 .workout-select {
   padding: 10px;
   border: none;
@@ -22,6 +50,18 @@
   font-size: 16px;
   background-color: #e0e2ec;
   width: 200px;
+}
+
+@media (max-width: 600px) {
+  .workout-select {
+    width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .workout-select {
+    width: 80%;
+  }
 }
 
 .custom-table .p-datatable {

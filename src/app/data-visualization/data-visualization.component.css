@@ -1,0 +1,52 @@
+@media (max-width: 600px) {
+  .custom-dialog {
+    width: 90% !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .custom-dialog {
+    width: 70% !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .custom-dialog {
+    width: 60% !important;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+}
+
+.listbox-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  width: 100%;
+}
+
+.chart-container h2 {
+  margin: 0 0 20px 0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .listbox-container {
+    width: 25%;
+    margin-bottom: 0;
+  }
+
+  .chart-container {
+    width: 75%;
+  }
+}

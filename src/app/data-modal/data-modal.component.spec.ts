@@ -42,7 +42,7 @@ describe('AppDataModalComponent', () => {
     spyOn(localStorage, 'setItem');
     spyOn(component.workoutAdded, 'emit');
 
-    component.newEntry = { ...newEntry }; 
+    component.newEntry = { ...newEntry };
     component.addWorkout();
 
     expect(localStorage.setItem).toHaveBeenCalledWith(
@@ -66,7 +66,11 @@ describe('AppDataModalComponent', () => {
     spyOn(localStorage, 'setItem');
     spyOn(component.workoutAdded, 'emit');
 
-    component.newEntry = { name: 'Test User', workout: '', workoutMinutes: 30 };
+    component.newEntry = {
+      name: 'Test User',
+      workout: '',
+      workoutMinutes: 30 || '',
+    };
     component.addWorkout();
 
     expect(localStorage.setItem).not.toHaveBeenCalled();

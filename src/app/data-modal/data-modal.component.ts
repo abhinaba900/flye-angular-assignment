@@ -8,7 +8,12 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './data-modal.component.html',
   styleUrls: ['./data-modal.component.css'],
   standalone: true,
-  imports: [DialogModule, ButtonModule, FormsModule],
+  imports: [
+    DialogModule,
+    ButtonModule,
+    FormsModule,
+    
+  ],
 })
 export class AppDataModalComponent {
   @Input() visible: boolean = false;
