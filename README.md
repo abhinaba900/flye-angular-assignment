@@ -1,4 +1,3 @@
-### Angular Project with 100% Code Coverage
 
 =======================================
 
